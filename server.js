@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 const http = require("http");
 const { Server } = require("socket.io");
 const express = require("express");
@@ -6,8 +6,9 @@ const cors = require("cors");
 const connectDB = require("./config/mongoConnection");
 const chatRouter = require("./src/routes/chatRoutes")
 const app = express();
+const dotenv = require('dotenv');
+dotenv.config();
 connectDB();
-
 app.use(cors());
 app.use(express.json());
 const chatSocket = require("./src/socket/chatSocket");
